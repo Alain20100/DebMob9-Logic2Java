@@ -22,6 +22,9 @@ public class ExerciceList {
     printList(origine);
 
     System.out.println(get(origine, size(origine) - 1));
+
+    System.out.println(indexOf(origine, 14));
+    System.out.println(indexOf(origine, 13));
   }
 
   public static void printList (List l) {
@@ -106,5 +109,15 @@ public class ExerciceList {
     ret = l.val;
     l.val = val;
     return ret;
+  }
+
+  public static int indexOf (List l, int val) {
+    int pos = 0;
+    while (null != l) {
+      if (l.val == val) {
+        return pos;
+      }
+    }
+    return -1;
   }
 }
