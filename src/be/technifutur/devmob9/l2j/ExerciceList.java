@@ -23,8 +23,8 @@ public class ExerciceList {
 
     System.out.println(get(origine, size(origine) - 1));
 
-    System.out.println(indexOf(origine, 14));
-    System.out.println(indexOf(origine, 13));
+    System.out.println("indexOf 14 : " + indexOf(origine, 14));
+    System.out.println("indexOf 13 : " + indexOf(origine, 13));
   }
 
   public static void printList (List l) {
@@ -113,11 +113,16 @@ public class ExerciceList {
 
   public static int indexOf (List l, int val) {
     int pos = 0;
-    while (null != l) {
+    boolean found = false;
+    while (null != l && !found) {
       if (l.val == val) {
-        return pos;
+        found = true;
+      }
+      else {
+        l = l.next;
+        pos++;
       }
     }
-    return -1;
+    return found ? pos : -1;
   }
 }
