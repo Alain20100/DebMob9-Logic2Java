@@ -60,9 +60,8 @@ public class ExerciceList {
   }
 
   public static List add (List l, int val) {
-    List c = new List();
+    List c = push(null, val);
     List prev = l;
-    c.val = val;
     if (null != l) {
       while (null != prev.next) {
         prev = prev.next;
@@ -76,20 +75,16 @@ public class ExerciceList {
   }
 
   public static List insert (List l, int val, int pos) {
-    List c = new List();
     List prev;
-    c.val = val;
     if (0 == pos) {
-      c.next = l;
-      l = c;
+      l = push(l, val);
     }
     else {
       prev = l;
       while (1 < pos--) {
         prev = prev.next;
       }
-      c.next = prev.next;
-      prev.next = c;
+      prev.next = push(prev.next, val);
     }
     return l;
   }
